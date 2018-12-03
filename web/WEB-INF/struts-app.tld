@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+        
+<!--
+ thematic-cadeaux.com
+ Custom tags JSP.
+-->
+
+<taglib>
+  <tlib-version>1.3</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>partners</short-name>
+	<uri>http://www.cofrevip.com/partners/tags-app.tld</uri>
+	<info>
+		This tag library contains functionality specific to
+		the thematiccadeaux application.
+	</info>
+	<tag>
+		<name>errors</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.ErrorsTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>title</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>bundle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>information</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.InformationTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>bundle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>staticdata</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.GetStaticDataTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>typology</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>toScope</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>code</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>toxml</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.Text2XMLTag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+        <tag>
+		<name>tobase64</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.Text2Base64Tag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<name>inprofiles</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.InProfilesTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>profiles</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>notInprofiles</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.NotInProfilesTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>profiles</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>user</name>
+		<tag-class>es.regalocio.partners.struts.taglib.app.UserTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+</taglib>

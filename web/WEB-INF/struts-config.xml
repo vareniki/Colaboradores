@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+	<form-beans>
+		<!-- logon -->
+		<form-bean name="logonForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="login" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="redirect_path" type="java.lang.String" initial="home.do" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>	
+					
+		<!-- account -->
+		<form-bean name="changePasswordForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="password" type="java.lang.String" />	
+			<form-property name="new_password" type="java.lang.String" />	
+			<form-property name="confirm_password" type="java.lang.String" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- admin -->
+		<form-bean name="userForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="user_id" type="java.lang.Integer" />
+			<form-property name="login" type="java.lang.String" />
+			<form-property name="firstname" type="java.lang.String" />
+			<form-property name="lastname" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="profile_code_array" type="java.lang.Integer[]" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- partner -->
+		<form-bean name="partnerForm" type="org.apache.struts.validator.DynaValidatorActionForm">
+			<form-property name="partner_id" type="java.lang.Integer" />
+			<form-property name="code" type="java.lang.String" />
+			<form-property name="department_code" type="java.lang.Integer" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="phone" type="java.lang.String" />
+			<form-property name="phone2" type="java.lang.String" />
+			<form-property name="fax" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="cif" type="java.lang.String" />
+			<form-property name="factname" type="java.lang.String" />
+			<form-property name="contact_id" type="java.lang.Integer" />
+			<form-property name="salutation_code" type="java.lang.Integer" />
+			<form-property name="firstname" type="java.lang.String" />
+			<form-property name="lastname" type="java.lang.String" />
+			<form-property name="address_id" type="java.lang.Integer" />
+			<form-property name="address" type="java.lang.String" />
+			<form-property name="further_address" type="java.lang.String" />
+			<form-property name="postal_code" type="java.lang.String" />
+			<form-property name="town" type="java.lang.String" />
+			<form-property name="domiciliation" type="java.lang.String" />
+			<form-property name="bank_code" type="java.lang.String" />
+			<form-property name="agency_code" type="java.lang.String" />
+			<form-property name="key" type="java.lang.String" />
+			<form-property name="account_number" type="java.lang.String" />
+      <form-property name="iban" type="java.lang.String" />
+      <form-property name="opciones" type="java.lang.Integer" />
+      <form-property name="opciones2" type="java.lang.Integer" />
+      <form-property name="groupal_agreement_id" type="java.lang.Integer" />
+      
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="specificAgreementForm" type="org.apache.struts.validator.DynaValidatorActionForm">
+			<form-property name="specific_agreement_id" type="java.lang.Integer" />
+			<form-property name="partner_id" type="java.lang.Integer" />
+			<form-property name="thematic_id" type="java.lang.Integer" />
+			<form-property name="end_of_validity" type="java.lang.String" />
+			<form-property name="commission" type="java.lang.String" />
+      <form-property name="price_service" type="java.lang.String" />
+      <form-property name="word" type="java.lang.String" />
+      <form-property name="new_agreement" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+      <form-property name="agreement_since" type="java.lang.String" />
+		</form-bean>
+		
+		<!-- distribution network -->
+		<form-bean name="distributionNetworkForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="gift_voucher_activation_on_sale" type="java.lang.Boolean" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+			<form-property name="cif" type="java.lang.String" />
+			<form-property name="inherit_address" type="java.lang.Boolean" />
+			<form-property name="inherit_factaddress" type="java.lang.Boolean" />
+			<form-property name="disable_changepassword" type="java.lang.Boolean" />
+      <form-property name="with_iva" type="java.lang.Boolean" />
+			<form-property name="address_id" type="java.lang.Integer" />
+			<form-property name="address" type="java.lang.String" />
+      <form-property name="further_address" type="java.lang.String" />
+      <form-property name="postal_code" type="java.lang.String" />
+      <form-property name="town" type="java.lang.String" />
+      <form-property name="factaddress_id" type="java.lang.Integer" />
+      <form-property name="fact_address" type="java.lang.String" />
+      <form-property name="fact_further_address" type="java.lang.String" />
+      <form-property name="fact_postal_code" type="java.lang.String" />
+      <form-property name="fact_town" type="java.lang.String" />	
+		</form-bean>
+		
+		<form-bean name="distributorMarginForm" type="org.apache.struts.validator.DynaValidatorActionForm">
+			<form-property name="distributor_margin_id" type="java.lang.Integer" />
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="thematic_id" type="java.lang.Integer" />
+			<form-property name="end_of_validity" type="java.lang.String" />
+			<form-property name="margin" type="java.lang.String" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="retailOutletForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="user_id" type="java.lang.Integer" />
+			<form-property name="distribution_network_id" type="java.lang.Integer" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="phone" type="java.lang.String" />
+			<form-property name="fax" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="gift_voucher_activation_on_sale" type="java.lang.String" />
+			<form-property name="contact_id" type="java.lang.Integer" />
+			<form-property name="salutation_code" type="java.lang.Integer" />
+			<form-property name="firstname" type="java.lang.String" />
+			<form-property name="lastname" type="java.lang.String" />
+			<form-property name="address_id" type="java.lang.Integer" />
+			<form-property name="address" type="java.lang.String" />
+			<form-property name="further_address" type="java.lang.String" />
+			<form-property name="postal_code" type="java.lang.String" />
+			<form-property name="town" type="java.lang.String" />
+			
+			<form-property name="factaddress_id" type="java.lang.Integer" />
+			<form-property name="fact_address" type="java.lang.String" />
+			<form-property name="fact_further_address" type="java.lang.String" />
+			<form-property name="fact_postal_code" type="java.lang.String" />
+			<form-property name="fact_town" type="java.lang.String" />
+      
+      <form-property name="cif" type="java.lang.String" />
+      <form-property name="factname" type="java.lang.String" />
+      
+      <form-property name="order_platform_id" type="java.lang.Integer" />
+      <form-property name="send_last_guides" type="java.lang.Integer" />
+      
+			<form-property name="profile_code_array" type="java.lang.Integer[]" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="listOfSalesForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="sales_start" type="java.lang.String" />
+			<form-property name="sales_end" type="java.lang.String" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- gift voucher -->
+		<form-bean name="createGiftVoucherForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="thematic_id" type="java.lang.Integer" />
+			<form-property name="end_of_validity" type="java.lang.String" />
+			<form-property name="amount" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="giftVoucherEAN8Form" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="ean8" type="java.lang.String" />
+			<form-property name="expedient_number" type="java.lang.String" />
+      <form-property name="new_status" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="giftVoucherChangeStatusForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="ean8" type="java.lang.String" />
+			<form-property name="new_status" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="giftVoucherReturnForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="ean8" type="java.lang.String" />
+			<form-property name="handling_code" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- repayment -->
+		<form-bean name="repaymentForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="repayment_id" type="java.lang.Integer" />
+			<form-property name="partner_id" type="java.lang.Integer" />
+			<form-property name="gift_voucher_array" type="java.lang.String[]" />
+      <form-property name="email_array" type="java.lang.String[]" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="giftVoucherForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="repayment_id" type="java.lang.Integer" />
+			<form-property name="index" type="java.lang.Integer" />
+			<form-property name="mode_of_capture" type="java.lang.String" />
+			<form-property name="gift_voucher_number" type="java.lang.String" />
+			<form-property name="ean8" type="java.lang.String" />
+			<form-property name="pin" type="java.lang.String" />
+			<form-property name="gift_voucher_array" type="java.lang.String[]" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+			<form-property name="email" type="java.lang.String" />
+		</form-bean>
+		
+		<form-bean name="repaymentsSearchForm" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="partner_code" type="java.lang.String" />
+      <form-property name="input_text" type="java.lang.String" />
+			<form-property name="repayment_start" type="java.lang.String" />
+			<form-property name="repayment_end" type="java.lang.String" />
+      <form-property name="repayment_status" type="java.lang.String" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<form-bean name="listOfRepaymentsForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="partner_id" type="java.lang.Integer" />
+			<form-property name="year" type="java.lang.Integer" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- order -->
+		<form-bean name="retailOutletOrderForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="order_id" type="java.lang.Integer" />
+			<form-property name="distribution_network_id" type="java.lang.Integer" />
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="extra_discount" type="java.lang.Double" />
+			<form-property name="forwarding_charges" type="java.lang.Double" />
+			<form-property name="discount_on_forwarding_charges" type="java.lang.Double" />
+      <form-property name="persona_contacto" type="java.lang.String" />
+      <form-property name="tfno_contacto" type="java.lang.String" />
+      <form-property name="email_contacto" type="java.lang.String" />
+      <form-property name="mercancia_sin_coste" type="java.lang.Boolean" />
+			<form-property name="message" type="java.lang.String" />
+			<form-property name="order_form_reference" type="java.lang.String" />
+      <form-property name="ean13_array" type="java.lang.String[]" />
+      <form-property name="amount_array" type="java.lang.Integer[]" />
+      <form-property name="envio_plataforma" type="java.lang.Boolean" />
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+<!-- order from retail outlet -->
+<form-bean name="retailOutletAddOrderForm" type="org.apache.struts.validator.DynaValidatorForm">
+        <form-property name="order_id" type="java.lang.Integer" />
+        <form-property name="distribution_network_id" type="java.lang.Integer" />
+        <form-property name="entity_id" type="java.lang.Integer" />
+        <form-property name="message" type="java.lang.String" />
+        <form-property name="ean13_array" type="java.lang.String[]" />
+        <form-property name="amount_array" type="java.lang.Integer[]" />
+        <form-property name="run_once" type="java.lang.Boolean" initial="true" />
+</form-bean>		
+
+		<!-- invoice -->
+		<form-bean name="invoiceForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="invoice_id" type="java.lang.Integer" />
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="extra_discount" type="java.lang.Double" />
+			<form-property name="extra_discount2" type="java.lang.Double" />
+			<form-property name="forwarding_charges" type="java.lang.Double" />
+			<form-property name="discount_on_forwarding_charges" type="java.lang.Double" />
+			
+			<form-property name="comments" type="java.lang.String" />
+			<form-property name="type_of_document" type="java.lang.Integer" />
+			<form-property name="ean13_array" type="java.lang.String[]" />
+			<form-property name="amount_array" type="java.lang.Integer[]" />
+      
+      <form-property name="ean13_array2" type="java.lang.String" />
+			<form-property name="amount_array2" type="java.lang.String" />
+      
+      <form-property name="order_form_reference" type="java.lang.String" />
+      <form-property name="numero_albaran" type="java.lang.String" />
+      <form-property name="numero_proveedor" type="java.lang.String" />
+      <form-property name="numero_sucursal" type="java.lang.String" />
+      
+      <form-property name="importe_total" type="java.lang.Double" />
+      <form-property name="importe_comision" type="java.lang.Double" />
+      
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+					
+		<!-- workflow -->		
+		<form-bean name="repaymentsForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="repayment_id_array" type="java.lang.Integer[]" />
+			<form-property name="submit_for_validation_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="delete_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="validate_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="refuse_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="download_the_transfert_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="save_the_transfert_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="cancel_to_update_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="cancel_repayment_button" type="org.apache.struts.util.ImageButtonBean" />
+			<form-property name="save_the_payment_button" type="org.apache.struts.util.ImageButtonBean" />
+			
+			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
+		</form-bean>
+		
+		<!-- PDF Documents -->
+		<form-bean name="distributionDocumentForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="entity_id" type="java.lang.Integer" />
+			<form-property name="invoice_id" type="java.lang.Integer" />
+			<form-property name="order_id" type="java.lang.Integer" />
+		</form-bean>
+
+	</form-beans>
+    
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+      <forward name="home"           path="/home.do"                  redirect="true" />
+      <forward name="logon"          path="/logon.do"                 redirect="true" />
+      <forward name="unauthorized"	 path="/unauthorized.do"          redirect="true" />
+    </global-forwards>
+
+    <action-mappings>
+
+		<action path="/home" type="es.regalocio.partners.struts.action.HomeAction">
+			<forward name="internal_user_home" path="/list_of_repayments.do" redirect="true" />
+			<forward name="partner_home" path="/tile.partner_home" redirect="false" />
+			<forward name="retail_outlet_home" path="/tile.retail_outlet_home" redirect="false" />
+		</action>
+					
+		<!-- account -->				
+		<action path="/change_password"
+				type="es.regalocio.partners.struts.action.ChangePasswordAction"
+				name="changePasswordForm"
+				scope="request"
+				input="/tile.change_password"
+				validate="false"
+				roles="1,2,3,4,5,6" />	
+					
+		<!-- logon -->
+		<action path="/logon"
+				type="es.regalocio.partners.struts.action.logon.LogonAction"
+				name="logonForm"
+				scope="request"
+				input="/jsp/logon/logon.jsp"
+				validate="false" />
+					
+		<action path="/logout"
+				type="es.regalocio.partners.struts.action.logon.LogoutAction" />
+					
+		<!-- admin -->				
+		<action path="/add_user"
+				type="es.regalocio.partners.struts.action.admin.AddUserAction"
+				name="userForm"
+				scope="request"
+				input="/tile.add_user"
+				validate="false"
+				roles="1">
+			<forward name="success" path="/list_of_users.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_users"
+				type="es.regalocio.partners.struts.action.SuccessAction"
+				roles="1">
+			<forward name="success" path="/tile.list_of_users" />
+		</action>
+		
+		<action path="/list_of_users_ajax"
+				type="es.regalocio.partners.struts.action.admin.ListOfUsersAjaxAction">
+			<forward name="success" path="/tile.list_of_users_ajax" />
+		</action>
+				
+		<action path="/update_user"
+				type="es.regalocio.partners.struts.action.admin.UpdateUserAction"
+				name="userForm"
+				scope="request"
+				input="/tile.update_user"
+				validate="false"
+				roles="1">
+			<forward name="success" path="/list_of_users.do" redirect="true" />
+		</action>
+				
+		<action path="/generate_new_user_password"
+				type="es.regalocio.partners.struts.action.admin.GenerateNewPasswordAction"
+				roles="1">
+			<forward name="success" path="/list_of_users.do" redirect="true" />
+		</action>
+	  
+		<action path="/enable_account"
+				type="es.regalocio.partners.struts.action.admin.EnableAccountAction"
+				roles="1">
+			<forward name="success" path="/list_of_users.do" redirect="true" />
+		</action>
+				
+		<action path="/disable_account"
+				type="es.regalocio.partners.struts.action.admin.DisableAccountAction"
+				roles="1">
+			<forward name="success" path="/list_of_users.do" redirect="true" />
+		</action>
+		
+		<!-- partner -->
+		<action path="/add_partner"
+				type="es.regalocio.partners.struts.action.partner.AddPartnerAction"
+				name="partnerForm"
+				scope="request"
+				input="/tile.add_partner"
+				validate="false"
+				roles="2">
+			<forward name="success" path="/consult_partner_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_partners"
+				type="es.regalocio.partners.struts.action.SuccessAction"
+				roles="2">
+			<forward name="success" path="/tile.list_of_partners" />
+		</action>
+		
+		<action path="/list_of_partners_ajax"
+				type="es.regalocio.partners.struts.action.partner.ListOfPartnersAjaxAction">
+			<forward name="success" path="/tile.list_of_partners_ajax" />
+		</action>
+		
+		<action path="/consult_partner_sheet"
+				type="es.regalocio.partners.struts.action.partner.ConsultPartnerSheetAction"
+				roles="2">
+			<forward name="success" path="/tile.partner_sheet" />
+		</action>
+		
+		<action path="/list_of_specific_agreements_ajax"
+				type="es.regalocio.partners.struts.action.partner.ListOfSpecificAgreementsAjaxAction">
+			<forward name="success" path="/tile.list_of_specific_agreements_ajax" />
+		</action>
+				
+		<action path="/update_partner"
+				type="es.regalocio.partners.struts.action.partner.UpdatePartnerAction"
+				name="partnerForm"
+				scope="request"
+				input="/tile.update_partner"
+				validate="false"
+				roles="2">
+			<forward name="success" path="/consult_partner_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/partner_update_our_informations"
+				type="es.regalocio.partners.struts.action.partner.UpdateOurInformationsAction"
+				name="partnerForm"
+				scope="request"
+				input="/tile.partner_update_our_informations"
+				validate="false"
+				roles="7">
+			<forward name="success" path="/partner_update_our_informations.do" redirect="true" />
+		</action>
+				
+		<action path="/generate_new_partner_password"
+				type="es.regalocio.partners.struts.action.partner.GenerateNewPasswordAction"
+				roles="2">
+			<forward name="success" path="/list_of_partners.do" redirect="true" />
+		</action>
+				
+		<action path="/enable_partner"
+				type="es.regalocio.partners.struts.action.partner.EnablePartnerAction"
+				roles="2">
+			<forward name="success" path="/list_of_partners.do" redirect="true" />
+		</action>
+				
+		<action path="/disable_partner"
+				type="es.regalocio.partners.struts.action.partner.DisablePartnerAction"
+				roles="2">
+			<forward name="success" path="/list_of_partners.do" redirect="true" />
+		</action>
+		
+		<action path="/add_specific_agreement"
+				type="es.regalocio.partners.struts.action.partner.AddSpecificAgreementAction"
+				name="specificAgreementForm"
+				scope="request"
+				input="/tile.add_specific_agreement"
+				validate="false"
+				roles="2">
+			<forward name="success" path="/consult_partner_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/update_specific_agreement"
+				type="es.regalocio.partners.struts.action.partner.UpdateSpecificAgreementAction"
+				name="specificAgreementForm"
+				scope="request"
+				input="/tile.update_specific_agreement"
+				validate="false"
+				roles="2">
+			<forward name="success" path="/consult_partner_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/delete_specific_agreement"
+				type="es.regalocio.partners.struts.action.partner.DeleteSpecificAgreementAction"
+				roles="2">
+			<forward name="success" path="/consult_partner_sheet.do" redirect="true" />
+		</action>
+		
+		<!-- distribution network -->
+		<action path="/add_distribution_network"
+				type="es.regalocio.partners.struts.action.distributionnetwork.AddDistributionNetworkAction"
+				name="distributionNetworkForm"
+				scope="request"
+				input="/tile.add_distribution_network"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_distribution_networks"
+				type="es.regalocio.partners.struts.action.SuccessAction"
+				roles="8">
+			<forward name="success" path="/tile.list_of_distribution_networks" />
+		</action>
+		
+		<action path="/list_of_distribution_networks_ajax"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfDistributionNetworksAjaxAction">
+			<forward name="success" path="/tile.list_of_distribution_networks_ajax" />
+		</action>
+		
+		<action path="/consult_distribution_network_sheet"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ConsultDistributionNetworkSheetAction"
+				roles="8">
+			<forward name="success" path="/tile.distribution_network_sheet" />
+		</action>
+		
+		<action path="/list_of_distributor_margins_ajax"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfDistributorMarginsAjaxAction">
+			<forward name="success" path="/tile.list_of_distributor_margins_ajax" />
+		</action>
+		
+		<action path="/list_of_retail_outlets_ajax"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfRetailOutletsAjaxAction">
+			<forward name="success" path="/tile.list_of_retail_outlets_ajax" />
+		</action>
+				
+		<action path="/enable_distribution_network"
+				type="es.regalocio.partners.struts.action.distributionnetwork.EnableDistributionNetworkAction"
+				roles="8">
+			<forward name="success" path="/list_of_distribution_networks.do" redirect="true" />
+		</action>
+				
+		<action path="/disable_distribution_network"
+				type="es.regalocio.partners.struts.action.distributionnetwork.DisableDistributionNetworkAction"
+				roles="8">
+			<forward name="success" path="/list_of_distribution_networks.do" redirect="true" />
+		</action>
+				
+		<action path="/update_distribution_network"
+				type="es.regalocio.partners.struts.action.distributionnetwork.UpdateDistributionNetworkAction"
+				name="distributionNetworkForm"
+				scope="request"
+				input="/tile.update_distribution_network"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/add_distributor_margin"
+				type="es.regalocio.partners.struts.action.distributionnetwork.AddDistributorMarginAction"
+				name="distributorMarginForm"
+				scope="request"
+				input="/tile.add_distributor_margin"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/update_distributor_margin"
+				type="es.regalocio.partners.struts.action.distributionnetwork.UpdateDistributorMarginAction"
+				name="distributorMarginForm"
+				scope="request"
+				input="/tile.update_distributor_margin"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/delete_distributor_margin"
+				type="es.regalocio.partners.struts.action.distributionnetwork.DeleteDistributorMarginAction"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/add_retail_outlet"
+				type="es.regalocio.partners.struts.action.distributionnetwork.AddRetailOutletAction"
+				name="retailOutletForm"
+				scope="request"
+				input="/tile.add_retail_outlet"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+				
+		<action path="/update_retail_outlet"
+				type="es.regalocio.partners.struts.action.distributionnetwork.UpdateRetailOutletAction"
+				name="retailOutletForm"
+				scope="request"
+				input="/tile.update_retail_outlet"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_retail_outlet_documents_ajax"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfRetailOutletDocumentsAjaxAction">
+			<forward name="success" path="/tile.list_of_retail_outlet_documents_ajax" />
+		</action>
+				
+		<action path="/generate_new_retail_outlet_password"
+				type="es.regalocio.partners.struts.action.distributionnetwork.GenerateNewRetailOutletPasswordAction"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+				
+		<action path="/enable_retail_outlet"
+				type="es.regalocio.partners.struts.action.distributionnetwork.EnableRetailOutletAction"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+				
+		<action path="/disable_retail_outlet"
+				type="es.regalocio.partners.struts.action.distributionnetwork.DisableRetailOutletAction"
+				roles="8">
+			<forward name="success" path="/consult_distribution_network_sheet.do" redirect="true" />
+		</action>
+		
+		<action path="/retail_outlet_update_our_informations"
+				type="es.regalocio.partners.struts.action.distributionnetwork.UpdateOurInformationsAction"
+				name="retailOutletForm"
+				scope="request"
+				input="/tile.retail_outlet_update_our_informations"
+				validate="false"
+				roles="9">
+			<forward name="success" path="/retail_outlet_update_our_informations.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_sales"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfSalesAction"
+				name="listOfSalesForm"
+				scope="request"
+				input="/tile.list_of_sales"
+				validate="false"
+				roles="10">
+			<forward name="success" path="/tile.list_of_sales" />
+		</action>
+		
+		<action path="/list_of_sales_ajax"
+				type="es.regalocio.partners.struts.action.distributionnetwork.ListOfSalesAjaxAction"
+				scope="request"
+				validate="false">
+			<forward name="success" path="/tile.list_of_sales_ajax" />
+		</action>
+		
+    <!-- List of boxes in Stock -->
+    <action path="/list_of_boxes_in_stock"
+        type="es.regalocio.partners.struts.action.distributionnetwork.ListOfBoxesInStockAction"
+        roles="9">
+      <forward name="success" path="/tile.list_of_boxes_in_stock" />
+    </action>
+    
+    <action path="/list_of_boxes_in_stock_ajax"
+        type="es.regalocio.partners.struts.action.distributionnetwork.ListOfBoxesInStockAjaxAction">
+      <forward name="success" path="/tile.list_of_boxes_in_stock_ajax" />
+    </action>
+    
+    <!-- Do retail order -->
+    <action path="/retail_outlet_add_order"
+        type="es.regalocio.partners.struts.action.order.RetailOutletAddOrderAction"
+        scope="request"
+        input="/tile.retail_outlet_add_order"
+        name="retailOutletAddOrderForm"
+        roles="9">
+      <forward name="success" path="/tile.retail_outlet_add_order" />
+    </action>
+        
+		<!-- gift voucher -->
+		<action path="/create_ean8"
+				type="es.regalocio.partners.struts.action.giftvoucher.CreateEAN8Action"
+				name="createGiftVoucherForm"
+				scope="request"
+				input="/tile.create_ean8"
+				validate="false"
+				roles="6">
+			<forward name="success" path="/create_ean8_success.do" redirect="true" />
+		</action>
+		
+		<action path="/create_ean8_success"
+				type="es.regalocio.partners.struts.action.giftvoucher.CreateEAN8SuccessAction"
+				roles="6">
+			<forward name="success" path="/tile.create_ean8_success" />
+		</action>
+		
+		<action path="/download_ean8_file"
+				type="es.regalocio.partners.struts.action.giftvoucher.DownloadEAN8FileAction">
+		</action>
+				
+		<action path="/gift_voucher_status"
+				type="es.regalocio.partners.struts.action.giftvoucher.GiftVoucherStatusAction"
+				name="giftVoucherEAN8Form"
+				scope="request"
+				input="/tile.gift_voucher_status"
+				validate="false"
+				roles="7">
+		</action>
+		
+		<action path="/follow_up_of_gift_vouchers"
+				type="es.regalocio.partners.struts.action.giftvoucher.FollowUpOfGiftVouchersAction"
+				name="giftVoucherEAN8Form"
+				scope="request"
+				input="/tile.follow_up_of_gift_vouchers"
+				validate="false"
+				roles="1,2,3,4,5,6,10">
+		</action>
+		
+		<action path="/list_of_actions_on_gift_voucher_ajax"
+				type="es.regalocio.partners.struts.action.giftvoucher.ListOfActionsOnGiftVoucherAjaxAction">
+			<forward name="success" path="/tile.list_of_actions_on_gift_voucher_ajax" />
+		</action>
+		
+		<action path="/gift_voucher_activation"
+				type="es.regalocio.partners.struts.action.giftvoucher.GiftVoucherActivationAction"
+				name="giftVoucherEAN8Form"
+				scope="request"
+				input="/tile.gift_voucher_activation"
+				validate="false"
+				roles="10">
+			<forward name="success" path="/gift_voucher_activation.do" redirect="true" />
+		</action>
+		
+		<action path="/gift_voucher_return"
+				type="es.regalocio.partners.struts.action.giftvoucher.GiftVoucherReturnAction"
+				name="giftVoucherReturnForm"
+				scope="request"
+				input="/tile.gift_voucher_return"
+				validate="false"
+				roles="13">
+			<forward name="success" path="/gift_voucher_return.do" redirect="true" />
+		</action>
+		
+		<!-- repayment -->
+		<action path="/consult_repayment"
+				type="es.regalocio.partners.struts.action.repayment.ConsultRepaymentAction">
+			<forward name="success" path="/tile.consult_repayment" />
+		</action>
+    
+    <action path="/consult_repayment_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ConsultRepaymentAjaxAction">
+		</action>
+    
+    <action path="/consult_ean8_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ConsultEAN8AjaxAction">
+		</action>
+		
+		<action path="/breakdown_of_repayment"
+				type="es.regalocio.partners.struts.action.repayment.BreakdownOfRepaymentAction">
+			<forward name="success" path="/tile.breakdown_of_repayment" />
+		</action>
+    
+    <action path="/consult_partner_sheet_popup"
+				type="es.regalocio.partners.struts.action.partner.PartnerSheetPopupAction">
+			<forward name="success" path="/tile.partner_sheet_layout" />
+		</action>
+		
+		<action path="/list_of_gift_vouchers"
+				type="es.regalocio.partners.struts.action.repayment.ListOfGiftVouchersAction">
+			<forward name="success" path="/tile.list_of_gift_vouchers" />
+		</action>
+		
+		<action path="/list_of_gift_vouchers_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ListOfGiftVouchersAjaxAction">
+			<forward name="success" path="/tile.list_of_gift_vouchers_ajax" />
+		</action>
+		
+		<action path="/list_of_actions"
+				type="es.regalocio.partners.struts.action.repayment.ListOfActionsAction">
+			<forward name="success" path="/tile.list_of_actions" />
+		</action>
+		
+		<action path="/list_of_actions_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ListOfActionsAjaxAction">
+			<forward name="success" path="/tile.list_of_actions_ajax" />
+		</action>
+		
+		<action path="/add_repayment"
+				type="es.regalocio.partners.struts.action.repayment.AddRepaymentAction"
+				name="repaymentForm"
+				scope="request"
+				input="/tile.add_repayment"
+				validate="false"
+				roles="3,7">
+			<forward name="success" path="/consult_repayment.do" redirect="true" />
+		</action>
+		
+		<action path="/update_repayment"
+				type="es.regalocio.partners.struts.action.repayment.UpdateRepaymentAction"
+				name="repaymentForm"
+				scope="request"
+				input="/tile.update_repayment"
+				validate="false"
+				roles="3">
+			<forward name="success" path="/consult_repayment.do" redirect="true" />
+		</action>
+		
+		<action path="/selection_of_partner_ajax"
+				type="es.regalocio.partners.struts.action.partner.ListOfPartnersAjaxAction">
+			<forward name="success" path="/tile.selection_of_partner_ajax" />
+		</action>
+		
+		<action path="/partner_information_ajax"
+				type="es.regalocio.partners.struts.action.repayment.PartnerInformationAjaxAction">
+			<forward name="success" path="/jsp/repayment/partner_information_ajax.jsp" />
+		</action>
+		
+		<action path="/list_of_gift_vouchers_form_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ListOfGiftVouchersFormAjaxAction"
+				name="repaymentForm"
+				scope="request"
+				input="/tile.add_repayment"
+				validate="false">
+			<forward name="success" path="/tile.list_of_gift_vouchers_form_ajax" />
+		</action>
+		
+		<action path="/validate_repayment"
+				type="es.regalocio.partners.struts.action.repayment.ValidateRepaymentAction"
+				roles="4">
+			<forward name="success" path="/consult_repayment.do" redirect="true" />
+		</action>
+		
+		<action path="/save_payment"
+				type="es.regalocio.partners.struts.action.repayment.SavePaymentAction"
+				name="savePaymentForm"
+				scope="request"
+				input="/tile.save_payment"
+				validate="false"
+				roles="5">
+			<forward name="success" path="/tile.save_payment_propagation" />
+		</action>
+		
+		<action path="/list_of_repayments"
+				type="es.regalocio.partners.struts.action.repayment.ListOfRepaymentsAction"
+				name="repaymentsSearchForm"
+				scope="request"
+				input="/tile.list_of_repayments"
+				validate="false"
+				roles="1,2,3,4,5,6,7">
+			<forward name="success" path="/tile.list_of_repayments" />
+		</action>
+		
+		<action path="/list_of_repayments_ajax"
+				type="es.regalocio.partners.struts.action.repayment.ListOfRepaymentsAjaxAction"
+				scope="request"
+				validate="false">
+			<forward name="success" path="/tile.list_of_repayments_ajax" />
+		</action>
+		
+		<!-- order -->				
+		<action path="/list_of_retail_outlet_orders"
+				type="es.regalocio.partners.struts.action.order.ListOfRetailOutletOrdersAction"
+				roles="3">
+			<forward name="success" path="/tile.list_of_retail_outlet_orders" />
+		</action>
+		
+		<action path="/list_of_retail_outlet_orders_ajax"
+				type="es.regalocio.partners.struts.action.order.ListOfRetailOutletOrdersAjaxAction">
+			<forward name="success" path="/tile.list_of_retail_outlet_orders_ajax" />
+		</action>
+		
+		<action path="/add_retail_outlet_order"
+				type="es.regalocio.partners.struts.action.order.AddRetailOutletOrderAction"
+				name="retailOutletOrderForm"
+				scope="request"
+				input="/tile.add_retail_outlet_order"
+				validate="false"
+				roles="3">
+			<forward name="success" path="/list_of_retail_outlet_orders.do" redirect="true" />
+		</action>
+		
+		<action path="/update_retail_outlet_order"
+				type="es.regalocio.partners.struts.action.order.UpdateRetailOutletOrderAction"
+				name="retailOutletOrderForm"
+				scope="request"
+				input="/tile.update_retail_outlet_order"
+				validate="false"
+				roles="3">
+			<forward name="success" path="/list_of_retail_outlet_orders.do" redirect="true" />
+		</action>
+		
+		<action path="/delete_retail_outlet_order"
+				type="es.regalocio.partners.struts.action.order.DeleteRetailOutletOrderAction"
+				roles="3">
+			<forward name="success" path="/list_of_retail_outlet_orders.do" redirect="true" />
+		</action>
+		
+		<action path="/list_of_order_lines_form_ajax"
+				type="es.regalocio.partners.struts.action.order.ListOfOrderLinesFormAjaxAction"
+				name="retailOutletOrderForm"
+				scope="request"
+				validate="false">
+			<forward name="success" path="/tile.list_of_order_lines_form_ajax" />
+		</action>
+		
+		<!-- invoice -->
+		<action path="/add_manual_invoice"
+				type="es.regalocio.partners.struts.action.invoice.AddManualDocumentAction"
+				name="invoiceForm"
+				scope="request"
+				input="/tile.add_manual_invoice"
+				validate="false"
+				roles="8"
+				parameter="4">
+			<forward name="success" path="/update_retail_outlet.do" redirect="true" />
+		</action>
+		
+		<action path="/add_manual_credit"
+				type="es.regalocio.partners.struts.action.invoice.AddManualDocumentAction"
+				name="invoiceForm"
+				scope="request"
+				input="/tile.add_manual_credit"
+				validate="false"
+				roles="8"
+				parameter="5">
+			<forward name="success" path="/update_retail_outlet.do" redirect="true" />
+		</action>
+		
+		<action path="/update_manual_invoice"
+				type="es.regalocio.partners.struts.action.invoice.UpdateManualDocumentAction"
+				name="invoiceForm"
+				scope="request"
+				input="/tile.update_manual_invoice"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/update_retail_outlet.do" redirect="true" />
+		</action>
+		
+		<action path="/update_manual_credit"
+				type="es.regalocio.partners.struts.action.invoice.UpdateManualDocumentAction"
+				name="invoiceForm"
+				scope="request"
+				input="/tile.update_manual_credit"
+				validate="false"
+				roles="8">
+			<forward name="success" path="/update_retail_outlet.do" redirect="true" />
+		</action>
+		
+		<action path="/delete_manual_document"
+				type="es.regalocio.partners.struts.action.invoice.DeleteManualDocumentAction"
+				roles="8">
+			<forward name="success" path="/update_retail_outlet.do" redirect="true" />
+		</action>
+
+    <action path="/send_invoice_email"
+            type="es.regalocio.partners.struts.action.invoice.SendInvoiceEMailAction"
+            roles="8">
+        <forward name="success" path="/update_retail_outlet.do" redirect="true" />
+    </action>
+        		
+		<action path="/list_of_invoice_lines_form_ajax"
+				type="es.regalocio.partners.struts.action.invoice.ListOfInvoiceLinesFormAjaxAction"
+				name="invoiceForm"
+				scope="request"
+				validate="false">
+			<forward name="success" path="/tile.list_of_invoice_lines_form_ajax" />
+		</action>
+		
+		<!-- PDF Documents -->		
+		<action path="/load_invoice" type="es.regalocio.partners.struts.action.pdf.LoadInvoiceAction" />
+		
+    <action path="/load_new_invoice"
+				type="es.regalocio.partners.struts.action.pdf.LoadNewInvoiceAction" />
+    
+		<action path="/load_detailed_credit_note"
+				type="es.regalocio.partners.struts.action.pdf.LoadDetailedCreditNoteAction" />
+				
+		<action path="/load_distribution_document"
+				type="es.regalocio.partners.struts.action.pdf.LoadDistributionDocumentAction" 
+				name="distributionDocumentForm"
+				scope="request"
+				validate="false" />
+    
+    </action-mappings>
+
+    <controller processorClass="es.regalocio.partners.struts.UserRequestProcessor"/>
+
+    <message-resources parameter="es.regalocio.resources.MessageResources"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+  Paths found in Tiles definitions are relative to the main context.
+  -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+      property="pathnames"
+      value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  </plug-in>
+  
+</struts-config>

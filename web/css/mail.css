@@ -1,0 +1,15 @@
+body {background-color : #FFFFFF ; margin : 10px 10px 10px 10px}
+
+div {font-family: Arial; color: #000000; font-weight: normal; font-size: 12px}
+.main {width: 500px; margin-left: 20px; text-align: justify}
+
+p {font-family: Arial; color: #000000}
+.normal_text_right {font-weight: normal; font-size: 12px; text-align: right}
+#salutation {margin-bottom: 30px}
+#polite {margin-bottom: 30px}
+
+table {font-family: Arial; color: #000000}
+#informations {margin-left: 60px}
+
+a {font-family: Arial; color:#8bae2e}
+.normal_link {font-weight: normal; font-size: 12px; text-decoration: underline}

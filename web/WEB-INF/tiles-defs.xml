@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+  <definition name="partners_layout" template="/jsp/tiles-layouts/partners_layout.jsp">
+    <put name="title" value="CHANGE_ME"/>
+    <put name="meta_refresh" value="/jsp/tiles-components/empty.jsp"/>
+    <put name="extra_header" value="/jsp/tiles-components/empty.jsp"/>
+    <put name="onload" value="" />
+    <put name="menu" value="/jsp/tiles-components/menu.jsp"/>
+    <put name="body" value="CHANGE_ME"/>
+  </definition>
+
+  <!-- Page filter layout used with list of repayments. -->
+  <definition name="repayments_filter_layout" template="/jsp/tiles-layouts/repayments_filter_layout.jsp">
+    <put name="body" value="CHANGE_ME"/>
+  </definition>
+	
+  <!-- Layout used to define popup. -->
+  <definition name="ajax_layout" template="/jsp/tiles-layouts/ajax_layout.jsp">
+    <put name="body" value="CHANGE_ME"/>
+  </definition>
+	
+  <!-- Page layout used with Rico Live Grid. -->
+  <definition name="livegrid_layout" template="/jsp/tiles-layouts/livegrid_layout.jsp">
+    <put name="ajax_url" value="CHANGE_ME"/>
+    <put name="table_name" value="CHANGE_ME"/>
+    <put name="visible_rows" value="CHANGE_ME"/>
+    <put name="use_filter" value="true"/>
+    <put name="body" value="CHANGE_ME"/>
+  </definition>
+
+  <!-- XML layout used with Rico Live Grid. -->
+  <definition name="livegrid_ajax_layout" template="/jsp/tiles-layouts/livegrid_ajax_layout.jsp">
+    <put name="body" value="CHANGE_ME"/>
+  </definition>
+
+  <!-- =======================================================  -->
+  <!-- Page de définitions					                  -->
+  <!-- =======================================================  -->
+	
+  <!-- home -->
+  <definition name="/tile.partner_home" extends="partners_layout">
+    <put name="title" value="partner_home.title"/>
+    <put name="body" value="/jsp/home/partner_home.jsp"/>
+  </definition>
+	
+  <definition name="/tile.retail_outlet_home" extends="partners_layout">
+    <put name="title" value="retail_outlet_home.title"/>
+    <put name="body" value="/jsp/home/retail_outlet_home.jsp"/>
+  </definition>
+					
+  <!-- account -->	
+  <definition name="/tile.change_password" extends="partners_layout">
+    <put name="title" value="change_password.title"/>
+    <put name="body" value="/jsp/account/change_password.jsp"/>
+  </definition>
+		
+  <!-- admin -->	
+  <definition name="/tile.add_user" extends="partners_layout">
+    <put name="title" value="add_user.title"/>
+    <put name="body" value="/jsp/admin/add_user.jsp"/>
+  </definition>
+
+  <definition name="/tile.list_of_users" extends="partners_layout">
+    <put name="title" value="list_of_users.title"/>
+    <put name="extra_header" value=""/>
+    <put name="body" value="/tile.list_of_users_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_users_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/admin/list_of_users.jsp"/>
+  </definition>
+
+  <definition name="/tile.list_of_users_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/admin/list_of_users_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.update_user" extends="partners_layout">
+    <put name="title" value="update_user.title"/>
+    <put name="body" value="/jsp/admin/update_user.jsp"/>
+  </definition>
+		
+  <!-- partner -->
+  <definition name="/tile.add_partner" extends="partners_layout">
+    <put name="title" value="add_partner.title"/>
+    <put name="body" value="/jsp/partner/add_partner.jsp"/>
+  </definition>
+	
+  <definition name="/tile.list_of_partners" extends="partners_layout">
+    <put name="title" value="list_of_partners.title"/>
+    <put name="body" value="/tile.list_of_partners_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_partners_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/partner/list_of_partners.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_partners_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/partner/list_of_partners_ajax.jsp"/>		
+  </definition>
+
+  <definition name="/tile.partner_sheet" extends="partners_layout">
+    <put name="title" value="partner_sheet.title"/>
+    <put name="extra_header" value=""/>
+    <put name="body" value="/tile.partner_sheet_layout"/>
+  </definition>
+
+  <definition name="/tile.partner_sheet_layout" template="/jsp/partner/partner_sheet.jsp">
+    <put name="list_of_specific_agreements" value="/tile.list_of_specific_agreements_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_specific_agreements_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/partner/list_of_specific_agreements.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_specific_agreements_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/partner/list_of_specific_agreements_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.update_partner" extends="partners_layout">
+    <put name="title" value="update_partner.title"/>
+    <put name="body" value="/jsp/partner/update_partner.jsp"/>
+  </definition>
+	
+  <definition name="/tile.partner_update_our_informations" extends="partners_layout">
+    <put name="title" value="partner_update_our_informations.title"/>
+    <put name="body" value="/jsp/partner/partner_update_our_informations.jsp"/>
+  </definition>
+	
+  <definition name="/tile.add_specific_agreement" extends="partners_layout">
+    <put name="title" value="add_specific_agreement.title"/>
+    <put name="body" value="/jsp/partner/add_specific_agreement.jsp"/>
+  </definition>
+	
+  <definition name="/tile.update_specific_agreement" extends="partners_layout">
+    <put name="title" value="update_specific_agreement.title"/>
+    <put name="body" value="/jsp/partner/update_specific_agreement.jsp"/>
+  </definition>
+		
+  <!-- distribution network -->	
+  <definition name="/tile.add_distribution_network" extends="partners_layout">
+    <put name="title" value="add_distribution_network.title"/>
+    <put name="body" value="/jsp/distributionnetwork/add_distribution_network.jsp"/>
+  </definition>
+	
+  <definition name="/tile.list_of_distribution_networks" extends="partners_layout">
+    <put name="title" value="list_of_distribution_networks.title"/>
+    <put name="body" value="/tile.list_of_distribution_networks_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_distribution_networks_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_distribution_networks.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_distribution_networks_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_distribution_networks_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.distribution_network_sheet" extends="partners_layout">
+    <put name="title" value="distribution_network_sheet.title"/>
+    <put name="body" value="/tile.distribution_network_sheet_layout"/>
+  </definition>
+	
+  <definition name="/tile.distribution_network_sheet_layout" template="/jsp/distributionnetwork/distribution_network_sheet.jsp">
+    <put name="list_of_distributor_margins" value="/tile.list_of_distributor_margins_livegrid"/>
+    <put name="list_of_retail_outlets" value="/tile.list_of_retail_outlets_livegrid"/>
+  </definition>
+
+  <definition name="/tile.list_of_distributor_margins_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_distributor_margins.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_distributor_margins_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_distributor_margins_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlets_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_retail_outlets.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlets_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_retail_outlets_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.update_distribution_network" extends="partners_layout">
+    <put name="title" value="update_distribution_network.title"/>
+    <put name="body" value="/jsp/distributionnetwork/update_distribution_network.jsp"/>
+  </definition>
+	
+  <definition name="/tile.add_distributor_margin" extends="partners_layout">
+    <put name="title" value="add_distributor_margin.title"/>
+    <put name="body" value="/jsp/distributionnetwork/add_distributor_margin.jsp"/>
+  </definition>
+	
+  <definition name="/tile.update_distributor_margin" extends="partners_layout">
+    <put name="title" value="update_distributor_margin.title"/>
+    <put name="body" value="/jsp/distributionnetwork/update_distributor_margin.jsp"/>
+  </definition>
+	
+  <definition name="/tile.add_retail_outlet" extends="partners_layout">
+    <put name="title" value="add_retail_outlet.title"/>
+    <put name="body" value="/tile.retail_outlet_layout"/>
+  </definition>
+	
+  <definition name="/tile.update_retail_outlet" extends="partners_layout">
+    <put name="title" value="update_retail_outlet.title"/>
+    <put name="body" value="/tile.retail_outlet_layout"/>
+  </definition>
+	
+  <definition name="/tile.retail_outlet_layout" template="/jsp/distributionnetwork/retail_outlet.jsp">
+    <put name="list_of_documents" value="/tile.list_of_retail_outlet_documents_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.retail_outlet_update_our_informations_layout" template="/jsp/distributionnetwork/retail_outlet_update_our_informations.jsp">
+    <put name="list_of_documents" value="/tile.list_of_retail_outlet_documents_livegrid"/>
+  </definition>	
+	
+  <definition name="/tile.list_of_retail_outlet_documents_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_retail_outlet_documents.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlet_documents_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_retail_outlet_documents_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.retail_outlet_update_our_informations" extends="partners_layout">
+    <put name="title" value="retail_outlet_update_our_informations.title"/>
+    <put name="body" value="/tile.retail_outlet_update_our_informations_layout"/>
+  </definition>
+	
+  <definition name="/tile.list_of_sales" extends="partners_layout">
+    <put name="title" value="list_of_sales.title"/>
+    <put name="body" value="/tile.list_of_sales_layout"/>
+  </definition>
+	
+  <definition name="/tile.list_of_sales_layout" template="/jsp/distributionnetwork/list_of_sales.jsp">
+  </definition>
+	
+  <definition name="/tile.list_of_sales_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_sales_ajax.jsp"/>		
+  </definition>
+					
+  <!-- Boxes in Stock -->
+  <definition name="/tile.list_of_boxes_in_stock" extends="partners_layout">
+    <put name="title" value="list_of_boxes_in_stock.title"/>
+    <put name="body" value="/tile.list_of_boxes_in_stock_livegrid"/>
+  </definition>
+    
+  <definition name="/tile.list_of_boxes_in_stock_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_boxes_in_stock.jsp"/>      
+  </definition>
+
+  <definition name="/tile.list_of_boxes_in_stock_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/distributionnetwork/list_of_boxes_in_stock_ajax.jsp"/>     
+  </definition>
+
+  <!-- Retail Outlet Order -->
+  <definition name="/tile.retail_outlet_add_order" extends="partners_layout">
+    <put name="title" value="retail_outlet_add_order.title"/>
+    <put name="body" value="/jsp/order/retail_outlet_add_order.jsp"/>
+  </definition>		   
+					
+  <!-- gift voucher -->
+  <definition name="/tile.create_ean8" extends="partners_layout">
+    <put name="title" value="create_ean8.title"/>
+    <put name="body" value="/jsp/giftvoucher/create_ean8.jsp"/>
+  </definition>
+	
+  <definition name="/tile.create_ean8_success" extends="partners_layout">
+    <put name="title" value="create_ean8_success.title"/>
+    <put name="body" value="/jsp/giftvoucher/create_ean8_success.jsp"/>
+  </definition>
+	
+  <definition name="/tile.gift_voucher_status" extends="partners_layout">
+    <put name="title" value="gift_voucher_status.title"/>
+    <put name="body" value="/tile.gift_voucher_status_body"/>
+  </definition>
+	
+  <definition name="/tile.gift_voucher_status_body" template="/jsp/giftvoucher/gift_voucher_status.jsp">
+    <put name="gift_voucher_status_popup" value="/tile.gift_voucher_status_popup"/>
+  </definition>
+	
+  <definition name="/tile.gift_voucher_status_popup" extends="ajax_layout">
+    <put name="body" value="/jsp/giftvoucher/gift_voucher_status_popup.jsp"/>
+  </definition>
+	
+  <definition name="/tile.follow_up_of_gift_vouchers" extends="partners_layout">
+    <put name="title" value="follow_up_of_gift_vouchers.title"/>
+    <put name="body" value="/tile.follow_up_of_gift_vouchers_body"/>
+  </definition>
+  
+  <definition name="/tile.follow_up_of_gift_vouchers_body" template="/jsp/giftvoucher/follow_up_of_gift_vouchers.jsp">
+    <put name="list_of_actions_on_gift_voucher" value="/tile.list_of_actions_on_gift_voucher_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.gift_voucher_detailed_informations_layout" template="/jsp/giftvoucher/gift_voucher_detailed_informations.jsp">
+    <put name="list_of_actions_on_gift_voucher" value="/tile.list_of_actions_on_gift_voucher_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_actions_on_gift_voucher_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/giftvoucher/list_of_actions_on_gift_voucher.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_actions_on_gift_voucher_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/giftvoucher/list_of_actions_on_gift_voucher_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.gift_voucher_activation" extends="partners_layout">
+    <put name="title" value="gift_voucher_activation.title"/>
+    <put name="body" value="/jsp/giftvoucher/gift_voucher_activation.jsp"/>
+  </definition>
+	
+  <definition name="/tile.gift_voucher_return" extends="partners_layout">
+    <put name="title" value="gift_voucher_return.title"/>
+    <put name="body" value="/jsp/giftvoucher/gift_voucher_return.jsp"/>
+  </definition>
+		
+  <!-- repayment -->	
+  <definition name="/tile.add_repayment" extends="partners_layout">
+    <put name="title" value="add_repayment.title"/>
+    <put name="body" value="/jsp/repayment/add_repayment.jsp"/>
+  </definition>
+
+  <definition name="/tile.update_repayment" extends="partners_layout">
+    <put name="title" value="update_repayment.title"/>
+    <put name="body" value="/jsp/repayment/add_repayment.jsp"/>
+  </definition>
+  <!--		
+  <definition name="/tile.list_of_gift_vouchers_form_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/repayment/list_of_gift_vouchers_form.jsp"/>		
+  </definition>
+  -->
+  <definition name="/tile.list_of_gift_vouchers_form_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/repayment/list_of_gift_vouchers_form_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.consult_repayment" extends="partners_layout">
+    <put name="title" value="consult_repayment.title"/>
+    <put name="body" value="/tile.consult_repayment_body"/>
+  </definition>
+	
+  <definition name="/tile.consult_repayment_body" template="/jsp/repayment/consult_repayment.jsp">
+    <put name="partner_sheet_popup" value="/tile.partner_sheet_popup"/>
+    <put name="save_payment_popup" value="/tile.save_payment_popup"/>
+  </definition>
+	
+  <definition name="/tile.breakdown_of_repayment" extends="ajax_layout">
+    <put name="body" value="/jsp/repayment/breakdown_of_repayment.jsp"/>
+  </definition>
+	
+  <definition name="/tile.list_of_gift_vouchers" extends="ajax_layout">
+    <put name="body" value="/tile.list_of_gift_vouchers_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_gift_vouchers_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/repayment/list_of_gift_vouchers.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_gift_vouchers_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/repayment/list_of_gift_vouchers_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_actions" extends="ajax_layout">
+    <put name="body" value="/tile.list_of_actions_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_actions_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/repayment/list_of_actions.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_actions_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/repayment/list_of_actions_ajax.jsp"/>
+  </definition>
+	
+  <definition name="/tile.save_payment" extends="ajax_layout">
+    <put name="body" value="/jsp/repayment/save_payment.jsp"/>
+  </definition>
+	
+  <definition name="/tile.save_payment_propagation" extends="ajax_layout">
+    <put name="body" value="/jsp/tiles-components/empty.jsp"/>
+  </definition>
+	
+  <definition name="/tile.partner_sheet_popup" extends="ajax_layout">
+    <put name="body" value="/tile.partner_sheet_iframe"/>
+  </definition>
+	
+  <definition name="/tile.partner_sheet_iframe_content" extends="ajax_layout">
+    <put name="body" value="/tile.partner_sheet_layout"/>
+  </definition>
+	
+  <definition name="/tile.list_of_repayments" extends="partners_layout">
+    <put name="title" value="list_of_repayments.title"/>
+    <put name="body" value="/jsp/repayment/list_of_repayments.jsp"/>
+  </definition>
+	
+  <!-- order -->		
+  <definition name="/tile.add_retail_outlet_order" extends="partners_layout">
+    <put name="title" value="add_retail_outlet_order.title"/>
+    <put name="body" value="/tile.retail_outlet_order_body"/>
+  </definition>
+	
+  <definition name="/tile.update_retail_outlet_order" extends="partners_layout">
+    <put name="title" value="update_retail_outlet_order.title"/>
+    <put name="body" value="/tile.retail_outlet_order_body"/>
+  </definition>
+	
+  <definition name="/tile.retail_outlet_order_body" template="/jsp/order/retail_outlet_order.jsp">
+    <put name="list_of_order_lines_form" value="/tile.list_of_order_lines_form_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_order_lines_form_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/order/list_of_order_lines_form.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_order_lines_form_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/order/list_of_order_lines_form_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlet_orders" extends="partners_layout">
+    <put name="title" value="list_of_retail_outlet_orders.title"/>
+    <put name="body" value="/tile.list_of_retail_outlet_orders_filter"/>
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlet_orders_filter" template="/jsp/order/list_of_retail_outlet_orders.jsp">
+    <put name="body" value="/tile.list_of_retail_outlet_orders_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlet_orders_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/order/list_of_retail_outlet_orders_livegrid.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_retail_outlet_orders_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/order/list_of_retail_outlet_orders_ajax.jsp"/>		
+  </definition>
+		
+  <definition name="invoice_layout" extends="partners_layout">
+    <put name="body" value="/tile.invoice_body"/>
+  </definition>
+	
+  <definition name="/tile.invoice_body" template="/jsp/invoice/invoice.jsp">
+    <put name="list_of_invoice_lines_form" value="/tile.list_of_invoice_lines_form_livegrid"/>
+  </definition>
+	
+  <definition name="/tile.list_of_invoice_lines_form_livegrid" extends="livegrid_layout">
+    <put name="body" value="/jsp/invoice/list_of_invoice_lines_form.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.list_of_invoice_lines_form_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/invoice/list_of_invoice_lines_form_ajax.jsp"/>		
+  </definition>
+	
+  <definition name="/tile.add_manual_invoice" extends="invoice_layout">
+    <put name="title" value="add_manual_invoice.title"/>
+  </definition>
+	
+  <definition name="/tile.add_manual_credit" extends="invoice_layout">
+    <put name="title" value="add_manual_credit.title"/>
+  </definition>
+	
+  <definition name="/tile.update_manual_invoice" extends="invoice_layout">
+    <put name="title" value="update_manual_invoice.title"/>
+  </definition>
+	
+  <definition name="/tile.update_manual_credit" extends="invoice_layout">
+    <put name="title" value="update_manual_credit.title"/>
+  </definition>
+	
+  <definition name="/tile.list_of_repayments_ajax" extends="livegrid_ajax_layout">
+    <put name="body" value="/jsp/repayment/list_of_repayments_ajax.jsp"/>		
+  </definition>
+		
+</tiles-definitions>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Colaboradores.iml" filepath="$PROJECT_DIR$/Colaboradores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ColaboradoresServices/ColaboradoresServices.iml" filepath="$PROJECT_DIR$/../ColaboradoresServices/ColaboradoresServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CommonsLib/CommonsLib.iml" filepath="$PROJECT_DIR$/../CommonsLib/CommonsLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Procesos/Procesos.iml" filepath="$PROJECT_DIR$/../Procesos/Procesos.iml" />
+    </modules>
+  </component>
+</project>
