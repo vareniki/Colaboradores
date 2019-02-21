@@ -35,12 +35,8 @@ public class ConsultDistributionNetworkSheetAction extends SuccessAction {
     DistributionNetwork distributionNetwork = entityOfDistributionService.getDistributionNetwork(entityId);
     boolean retailOutletExists = entityOfDistributionService.retailOutletsExists(entityId);
 
-    InvoiceService invoiceService = PartnersServices.createInvoiceService();
-    boolean invoiceExists = invoiceService.invoiceExists(entityId, month, year);
-
     request.setAttribute("distribution_network", distributionNetwork);
     request.setAttribute("retail_outlet_exists", retailOutletExists);
-    request.setAttribute("invoice_exists", invoiceExists);
     request.setAttribute("available_thematics_for_distributor_margin",
             PartnersUtils.getInstance().getDistributorMarginThematics(distributionNetwork));
 

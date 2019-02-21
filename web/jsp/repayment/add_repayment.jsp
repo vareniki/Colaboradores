@@ -76,16 +76,13 @@
     <div class="gift-voucher-form">
       <div class="form-group">
         <label class="sr-only">N. Cheque</label>
+        <input type="hidden" name="email" value="">
         <input class="form-control input-sm" value="0" maxlength="0" disabled="disabled" style="width: 28px">
         <input name="ean8" type="text" class="form-control input-sm " placeholder="EAN8 + letra (s&oacute;lo cofres bipack)" maxlength="9" minlength="8" size="30">
       </div>
       <div class="form-group">
         <label class="sr-only">PIN</label>
         <input name="pin" type="text" class="form-control input-sm" placeholder="c&oacute;digo de seguridad" maxlength="3" minlength="3">
-      </div>
-      <div class="form-group">
-        <label class="sr-only">Email del beneficiario</label>
-        <input name="email" type="text" class="form-control input-sm" placeholder="EMail del Beneficiario" size="50">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-default btn-sm" name="validar"><span class="glyphicon glyphicon-ok"></span> Validar</button>

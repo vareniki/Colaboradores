@@ -59,6 +59,14 @@
   </div>
 
   <div class="form-group">
+    <label class="col-sm-3 control-label">Documento:</label>
+    <div class="col-sm-3">
+      <html:text styleClass="form-control" property="external_reference" maxlength="9" disabled="true" readonly="true" />
+    </div>
+
+  </div>
+
+  <div class="form-group">
     <label class="col-sm-3 control-label">Fianza sobre ventas:</label>
     <div class="col-sm-3">
       <html:text styleClass="form-control" property="forwarding_charges" maxlength="9" />
@@ -78,45 +86,16 @@
     <div class="col-sm-3">
       <html:text styleClass="form-control" property="discount_on_forwarding_charges" maxlength="9" />
     </div>
-  </div> 
-    <hr>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">N&uacute;mero de pedido:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="order_form_reference" maxlength="16" />
-    </div>
-    <label class="col-sm-3 control-label">N&uacute;mero de albar&aacute;n:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="numero_albaran" maxlength="16" />
-    </div>
-  </div>  
+  </div>
+  <hr>
 
   <div class="form-group">
-    <label class="col-sm-3 control-label">N&uacute;mero de proveedor:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="numero_proveedor" maxlength="16" />
+    <label class="col-sm-3 control-label">Porcentaje de IVA:</label>
+    <div class="col-sm-2">
+      <html:text styleClass="form-control" property="porc_iva" maxlength="9" />
     </div>
-    <label class="col-sm-3 control-label">N&uacute;mero de sucursal:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="numero_sucursal" maxlength="16" />
-    </div>
-  </div>  
-  <hr>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Importe total:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="importe_total" maxlength="9" />
-    </div>
-
-    <label class="col-sm-3 control-label">Importe comisi&oacute;n:</label>
-    <div class="col-sm-3">
-      <html:text styleClass="form-control" property="importe_comision" maxlength="9" />
-    </div>
-  </div>  
-  <hr>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Comentarios:</label>
-    <div class="col-sm-9">
+    <label class="col-sm-2 control-label">Comentarios:</label>
+    <div class="col-sm-5">
       <html:text styleClass="form-control" property="comments" maxlength="48" />
     </div>
   </div>

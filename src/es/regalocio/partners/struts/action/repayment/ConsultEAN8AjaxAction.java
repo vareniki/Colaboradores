@@ -37,11 +37,12 @@ public class ConsultEAN8AjaxAction extends SuccessAction {
                 + ", fecha: \"" + df.format(info.getEndOfValidity()) + "\""
                 + ", thematicId: \"" + info.getThematicId() + "\" }");
 
+        /*
         String email = request.getParameter("email");
         if (email != null && !email.isEmpty()) {
           PartnersServices.createLogService().addEMailLog(
                   "partners", "ConsultEAN8Ajax", email, request.getRemoteAddr());
-        }
+        }*/
 
       } else {
         response.getWriter().println("{ result: \"KO\" }");

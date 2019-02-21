@@ -1,10 +1,6 @@
 package es.regalocio.partners.struts.action.repayment;
 
-import es.regalocio.partners.business.common.Edition;
-import es.regalocio.partners.business.common.GiftVoucher;
-import es.regalocio.partners.business.common.Partner;
-import es.regalocio.partners.business.common.Repayment;
-import es.regalocio.partners.business.common.Thematic;
+import es.regalocio.partners.business.common.*;
 import es.regalocio.partners.business.common.shared.PartnersException;
 import es.regalocio.partners.config.PartnersServices;
 import es.regalocio.partners.config.PartnersUtils;
@@ -50,12 +46,12 @@ public class BreakdownOfRepaymentAction extends DynaValidatorFormAction {
 
     Map<Edition, Integer> records = new TreeMap<>();
     Properties totals = initTotalsForDetailedCreditNote();
-    PartnersUtils partnersUtils = PartnersUtils.getInstance();
 
-    for (GiftVoucher giftVoucher : repayment.getGiftVoucherList()) {
-      Thematic thematic = partnersUtils.getThematic(giftVoucher.getThematicId(), giftVoucher.getEndOfValidity());
-      Edition edition = new Edition(partner, thematic, giftVoucher.getEndOfValidity(),
-              PartnersUtils.getTipoIVA(repayment), giftVoucher.getWord(), repayment.getId());
+    for (RepaymentGiftVoucher giftVoucher : repayment.getGiftVoucherList()) {
+      Thematic thematic = PartnersUtils.getInstance().getThematic(
+              giftVoucher.getThematicId(), giftVoucher.getEndOfValidity());
+      Edition edition = new Edition(partner, thematic, PartnersUtils.getTipoIVA(repayment), repayment.getId(), giftVoucher);
+
       if (records.containsKey(edition)) {
         records.put(edition, records.get(edition) + 1);
       } else {
@@ -75,8 +71,12 @@ public class BreakdownOfRepaymentAction extends DynaValidatorFormAction {
       boolean conIva = reembolsoConIva(partner, repayment);
       boolean conIva2013 = (partner.getOpciones() == 1);
       
-      // Antes de nada recalcula la comisi�n en funci�n de si al colaborador se le aplica IVA o no.
-      if (!conIva && conIva2013) {
+      // Antes de nada recalcula la comisión en función de si al colaborador se le aplica IVA o no.
+      if (edition.isAlmacenado()) {
+        commision = edition.getCommission();
+        vatOnCommision = edition.getVATOnCommission();
+        commisionET = edition.getCommissionET();
+      } else if (!conIva && conIva2013) {
         // Se le aplica IVA
         commisionET = edition.getCommissionET();
         vatOnCommision = commisionET * VAT21;
@@ -87,13 +87,17 @@ public class BreakdownOfRepaymentAction extends DynaValidatorFormAction {
         vatOnCommision = edition.getVATOnCommission();
         commisionET = edition.getCommission();
       }
-      finalRepayment = edition.getValueFace() - commision;
+      finalRepayment = edition.getPriceService() - commisionET;
 
-      totalAmount += amount * edition.getValueFace();
+      totalAmount += amount * edition.getPriceService();
       addToTotal(totals, "amount", amount);
-      addToTotal(totals, "total_amount", amount * edition.getValueFace());
+      addToTotal(totals, "total_amount", amount * edition.getPriceService());
       addToTotal(totals, "total_commission_ET", amount * commisionET);
-      if (conIva) {
+
+      if (edition.isAlmacenado()) {
+        totalCommissionVAT += amount * commision;
+        addToTotal(totals, "total_commission_ET_VAT", amount * commision);
+      } else if (conIva) {
         totalCommissionVAT += amount * commisionET * (1+VAT21);
         addToTotal(totals, "total_commission_ET_VAT", amount * commisionET * (1+VAT21));
       } else {
@@ -102,9 +106,8 @@ public class BreakdownOfRepaymentAction extends DynaValidatorFormAction {
       }
       
       addToTotal(totals, "total_VAT_on_commission", amount * vatOnCommision);
-      addToTotal(totals, "total_commission_TCC", amount * commision);
+      addToTotal(totals, "total_commission_TCC", amount * commisionET);
       addToTotal(totals, "total_repayment_by_thematic", amount * finalRepayment);
-      
     }
     totals.put("total_repayment_by_thematic_VAT", totalAmount - totalCommissionVAT);
 

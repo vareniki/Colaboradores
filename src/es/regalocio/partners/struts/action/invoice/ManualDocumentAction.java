@@ -18,8 +18,7 @@ public abstract class ManualDocumentAction extends DynaValidatorFormAction {
   public void initValues(ActionMapping mapping, DynaValidatorForm form, HttpServletRequest request) {
 
     Integer entityId = (Integer) form.get("entity_id");
-    EntityOfDistributionService entityOfDistributionService = PartnersServices.createDistributionService();
-    RetailOutlet retailOutlet = entityOfDistributionService.getRetailOutlet(entityId);
+    RetailOutlet retailOutlet = PartnersServices.createDistributionService().getRetailOutlet(entityId);
 
     request.setAttribute("distribution_network_name", retailOutlet.getDistributionNetwork().getName());
     request.setAttribute("retail_outlet_name", retailOutlet.getName());
@@ -27,40 +26,42 @@ public abstract class ManualDocumentAction extends DynaValidatorFormAction {
 
   protected Invoice createInvoice(DynaValidatorForm form) {
 
-    StrUtils stringUtils = StrUtils.getInstance();
+    StrUtils strUtils = StrUtils.getInstance();
+
+    Integer porcIva = null;
+    try {
+      if (!((String)form.get("porc_iva")).isEmpty()) {
+        porcIva = Integer.parseInt(form.getString("porc_iva"));
+      }
+    } catch (NumberFormatException e) {
+    }
+
     Invoice invoice = new Invoice(
             (Integer) form.get("entity_id"),
             (Double) form.get("extra_discount"),
             (Double) form.get("extra_discount2"),
             (Double) form.get("forwarding_charges"),
             (Double) form.get("discount_on_forwarding_charges"),
-            stringUtils.strFmt(form.getString("order_form_reference")),
+            strUtils.strFmt(form.getString("external_reference")),
+            strUtils.strFmt(form.getString("order_form_reference")),
             (Integer) form.get("type_of_document"),
-            stringUtils.strFmt(form.getString("comments")),
-    
-            stringUtils.strFmt(form.getString("numero_albaran")),
-            stringUtils.strFmt(form.getString("numero_proveedor")),
-            stringUtils.strFmt(form.getString("numero_sucursal")),
-            
-            (Double) form.get("importe_total"),
-            (Double) form.get("importe_comision")
-    );
+            strUtils.strFmt(form.getString("comments")),
+            porcIva,null);
+
     createInvoiceLines(invoice, form);
 
     return invoice;
   }
 
-  protected InvoiceLine createInvoiceLine(DistributionNetwork distributionNetwork, String ean13, int amount) {
+  protected InvoiceLine createInvoiceLine(DistributionNetwork dn, String ean13, int amount) {
 
     PartnersUtils utils = PartnersUtils.getInstance();
     Thematic thematic = utils.getEan13Thematic(ean13);
     ThematicRate rate = utils.getThematicRate(ean13);
-    DistributorMargin distributorMargin = PartnersUtils.getInstance().getDistributorMarginForRate(distributionNetwork, thematic, rate);
+    DistributorMargin dm = PartnersUtils.getInstance().getDistributorMarginForRate(dn, thematic, rate);
 
-    return new InvoiceLine(
-            ean13, thematic.getId(), thematic.getName(),
-            rate.getEndOfValidity(), rate.getPrice(),
-            amount, distributorMargin.getMargin());
+    return new InvoiceLine(ean13, thematic.getId(), thematic.getName(),
+            rate.getEndOfValidity(), rate.getPrice(), amount, dm.getMargin());
   }
 
   protected void createInvoiceLines(Invoice invoice, DynaValidatorForm form) {
@@ -68,12 +69,10 @@ public abstract class ManualDocumentAction extends DynaValidatorFormAction {
     Integer[] amountArray = (Integer[]) form.get("amount_array");
 
     EntityOfDistributionService service = PartnersServices.createDistributionService();
-    DistributionNetwork distributionNetwork =
-            service.getRetailOutlet((Integer) form.get("entity_id")).getDistributionNetwork();
+    DistributionNetwork dn = service.getRetailOutlet((Integer) form.get("entity_id")).getDistributionNetwork();
 
     for (int counter = 0; counter < ean13Array.length; counter++) {
-      invoice.getInvoiceLines().add(
-              createInvoiceLine(distributionNetwork, ean13Array[counter], amountArray[counter]));
+      invoice.getInvoiceLines().add(createInvoiceLine(dn, ean13Array[counter], amountArray[counter]));
     }
   }
 

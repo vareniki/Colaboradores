@@ -263,17 +263,12 @@
 			<form-property name="ean13_array" type="java.lang.String[]" />
 			<form-property name="amount_array" type="java.lang.Integer[]" />
       
-      <form-property name="ean13_array2" type="java.lang.String" />
+      		<form-property name="ean13_array2" type="java.lang.String" />
 			<form-property name="amount_array2" type="java.lang.String" />
-      
-      <form-property name="order_form_reference" type="java.lang.String" />
-      <form-property name="numero_albaran" type="java.lang.String" />
-      <form-property name="numero_proveedor" type="java.lang.String" />
-      <form-property name="numero_sucursal" type="java.lang.String" />
-      
-      <form-property name="importe_total" type="java.lang.Double" />
-      <form-property name="importe_comision" type="java.lang.Double" />
-      
+
+			<form-property name="external_reference" type="java.lang.String" />
+			<form-property name="order_form_reference" type="java.lang.String" />
+			<form-property name="porc_iva" type="java.lang.String"  />
 			<form-property name="run_once" type="java.lang.Boolean" initial="true" />
 		</form-bean>
 					

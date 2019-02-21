@@ -2,6 +2,7 @@ package es.regalocio.partners.struts.action.invoice;
 
 import es.regalocio.partners.business.common.Invoice;
 import es.regalocio.partners.business.common.InvoiceLine;
+import es.regalocio.partners.business.common.RetailOutlet;
 import es.regalocio.partners.business.common.StaticDefinition;
 import es.regalocio.partners.business.services.InvoiceService;
 import es.regalocio.partners.config.PartnersServices;
@@ -25,16 +26,14 @@ public class UpdateManualDocumentAction extends ManualDocumentAction {
     form.set("extra_discount2", invoice.getExtraDiscount2());
     form.set("forwarding_charges", invoice.getForwardingCharges());
     form.set("discount_on_forwarding_charges", invoice.getDiscountOnForwardingCharges());
+    form.set("external_reference", invoice.getExternalReference());
     form.set("order_form_reference", invoice.getOrderFormReference());
     form.set("type_of_document", invoice.getTypeOfDocument());
     form.set("comments", invoice.getComments());
+    if (invoice.getPorcIva() != null) {
+        form.set("porc_iva", "" + invoice.getPorcIva());
+    }
 
-    form.set("numero_albaran", invoice.getNumeroAlbaran());
-    form.set("numero_proveedor", invoice.getNumeroProveedor());
-    form.set("numero_sucursal", invoice.getNumeroSucursal());
-    
-    form.set("importe_total", invoice.getImporteTotal());
-    form.set("importe_comision", invoice.getImporteComision());
 
     int size = invoice.getInvoiceLines().size();
     String[] ean13Array = new String[size];

@@ -3,6 +3,7 @@ package es.regalocio.partners.struts.action.repayment;
 import es.regalocio.partners.business.common.GiftVoucher;
 import es.regalocio.partners.business.common.Partner;
 import es.regalocio.partners.business.common.Repayment;
+import es.regalocio.partners.business.common.RepaymentGiftVoucher;
 import es.regalocio.partners.business.common.shared.UniqueGiftVoucherException;
 import es.regalocio.partners.business.services.PartnerService;
 import es.regalocio.partners.config.PartnersServices;
@@ -42,7 +43,7 @@ public abstract class RepaymentAction extends DynaValidatorFormAction {
 
     String[] giftVouchers = (String[]) form.get("gift_voucher_array");
     for (String giftVoucherStr : giftVouchers) {
-      GiftVoucher giftVoucher = createGiftVoucher(giftVoucherStr);
+      RepaymentGiftVoucher giftVoucher = createGiftVoucher(giftVoucherStr);
       if (repayment.getGiftVoucherList().contains(giftVoucher)) {
         throw new UniqueGiftVoucherException(giftVoucher);
       }
@@ -50,12 +51,12 @@ public abstract class RepaymentAction extends DynaValidatorFormAction {
     }
   }
 
-  protected GiftVoucher createGiftVoucher(String giftVoucher) {
+  protected RepaymentGiftVoucher createGiftVoucher(String giftVoucher) {
 
     MessageFormat parser = new MessageFormat("{0,number,integer}/{1,date,ddMMyyyy}/{2}");
     try {
       Object[] giftVoucherData = parser.parse(giftVoucher);
-      return new GiftVoucher(((Number) giftVoucherData[0]).intValue(), (Date) giftVoucherData[1], (String) giftVoucherData[2], 0, null);
+      return new RepaymentGiftVoucher(((Number) giftVoucherData[0]).intValue(), (Date) giftVoucherData[1], (String) giftVoucherData[2], 0, null);
     } catch (ParseException ex) {
       return null;
     }

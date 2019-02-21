@@ -1,5 +1,6 @@
 package es.regalocio.partners.struts.action.invoice;
 
+import es.regalocio.partners.business.common.RetailOutlet;
 import es.regalocio.partners.business.common.StaticDefinition;
 import es.regalocio.partners.business.services.InvoiceService;
 import es.regalocio.partners.config.PartnersServices;
@@ -21,6 +22,12 @@ public class AddManualDocumentAction extends ManualDocumentAction {
       form.set("comments", PartnersServices.createInvoiceService().getLastComments(false));
     } else if (typeOfDocument == StaticDefinition.MANUAL_CREDIT) {
       form.set("comments", PartnersServices.createInvoiceService().getLastComments(true));
+    }
+    RetailOutlet ro = PartnersServices.createDistributionService().getRetailOutlet((Integer) form.get("entity_id"));
+    if (ro.getDistributionNetwork().isWithIva()) {
+      form.set("porc_iva", "21");
+    } else {
+      form.set("porc_iva", "0");
     }
   }
 

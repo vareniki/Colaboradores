@@ -68,45 +68,7 @@ public class LoadDistributionDocumentAction extends Action {
    * @throws Throwable
    */
   private List<Document> getInvoice(DynaValidatorForm form) throws Throwable {
-    Integer invoiceId = (Integer) form.get("invoice_id");
-    Integer entityId = (Integer) form.get("entity_id");
-    if (invoiceId != null) {
-      return getInvoiceById(invoiceId);
-    } else if (entityId != null) {
-      return getInvoiceByEntity(entityId);
-    }
-    throw new PartnersException("At least one parameter document_id or entity_id must be not null.");
-  }
-
-  /**
-   *
-   * @param entityId
-   * @return
-   * @throws Throwable
-   */
-  private List<Document> getInvoiceByEntity(int entityId) throws Throwable {
-
-    InvoiceService invoiceService = PartnersServices.createInvoiceService();
-
-    GregorianCalendar calendar = new GregorianCalendar();
-    calendar.add(Calendar.MONTH, -1);
-    int month = calendar.get(Calendar.MONTH) + 1;
-    int year = calendar.get(Calendar.YEAR);
-
-    List<Invoice> invoices = invoiceService.getInvoices(entityId, month, year);
-
-    if (invoices.isEmpty()) {
-      return null;
-    }
-    List<Document> documents = new ArrayList<>();
-    EntityOfDistributionService entityOfDistributionService = PartnersServices.createDistributionService();
-
-    for (Invoice invoice : invoices) {
-      RetailOutlet retailOutlet = entityOfDistributionService.getRetailOutlet(invoice.getEntityId());
-      documents.add(new RetailOutletInvoiceDocument(invoice, retailOutlet));
-    }
-
-    return documents;
+    return getInvoiceById((Integer) form.get("invoice_id"));
   }
 
   /**
