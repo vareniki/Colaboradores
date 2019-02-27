@@ -3,7 +3,7 @@ package es.regalocio.partners.bean;
 import es.regalocio.partners.business.common.GiftVoucher;
 import java.util.Date;
 
-public class GiftVoucherBean extends Object {
+public class GiftVoucherBean extends Object { 
 
   private final Integer index;
   private final String giftVoucherNumber;
